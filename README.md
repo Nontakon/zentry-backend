@@ -75,11 +75,16 @@ The entire project is managed with **Turborepo** and can be easily run together 
 
 6. **Run Test:**
     Run `turbo run test --filter=backend` from the project root. Turborepo will start run test backend
+    ```bash
+    turbo run test --filter=backend
+    ```
 ---
 
 ## 📡 API Endpoints (Backend)
 
 The backend provides an API for fetching various analytics data, with the following main endpoints:
+
+-[Postman](https://nontakon-charoen-7812575.postman.co/workspace/My-Team's-Workspace~99e23455-4d80-43fc-8b02-a3a13db3d432/collection/47324752-c17facf8-40b0-4c14-81fd-94ce4509cb50?action=share&creator=47324752)
 
 ### Analytics (`/analyics`)
 -   **`GET /analyics/network/:username`**: Fetches the user's network relationship data.
@@ -101,5 +106,3 @@ The backend provides an API for fetching various analytics data, with the follow
 
 ### Health Check
 -   **`GET /health`**: Checks the server's status.
-
-postman link : `https://nontakon-charoen-7812575.postman.co/workspace/My-Team's-Workspace~99e23455-4d80-43fc-8b02-a3a13db3d432/collection/47324752-c17facf8-40b0-4c14-81fd-94ce4509cb50?action=share&creator=47324752`
