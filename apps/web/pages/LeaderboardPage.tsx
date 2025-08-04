@@ -16,7 +16,7 @@ export const LeaderboardPage = ({ type }: { type: 'strength' | 'referral' }) => 
     if (!username) return null;
     const params = new URLSearchParams();
     if (timeRange !== 'All Time') params.set('timeRange', timeRange);
-    return `/user/leaderboard/${type}?${params.toString()}`;
+    return `/analytic/leaderboard/${type}?${params.toString()}`;
   }, [username, type, timeRange]);
   
   const { data, loading, error } = useApi(apiPath, 30000);

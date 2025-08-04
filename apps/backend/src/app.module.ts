@@ -4,9 +4,11 @@ import { AppController } from './app.controller';
 import { StreamDataModule } from './modules/stream-data/stream-data.module';
 import { AppService } from './app.service';
 import { DatabaseModule } from './modules/database/database.module';
-import { UserModule } from './modules/user/user.module';
 import { TimeHelper } from './helpers/time.helper';
 import { ConfigModule } from '@nestjs/config';
+import { AnalyticModule } from './modules/analytic/analytic.module';
+import { ProfileModule } from './modules/profile/profile.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 @Module({
   imports: [
@@ -16,7 +18,9 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     DatabaseModule,
-    UserModule,
+    AnalyticModule,
+    ProfileModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService,

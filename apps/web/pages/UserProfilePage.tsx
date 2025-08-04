@@ -92,7 +92,7 @@ export const UserProfilePage = () => {
         if (!username) return null;
         const params = new URLSearchParams();
         if (timeRange !== 'All Time') params.set('timeRange', timeRange);
-        return `/user/profile/${username}?group-by=${interval}&${params.toString()}`;
+        return `/profile/${username}?groupBy=${interval}&${params.toString()}`;
     }, [username, interval,timeRange]);
     
     const { data, loading, error } = useApi(apiPath, 30000);

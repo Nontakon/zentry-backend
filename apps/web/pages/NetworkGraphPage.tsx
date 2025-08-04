@@ -20,7 +20,7 @@ type MyLink = LinkObject & { source: string; target: string; type: string; direc
 export const NetworkGraphPage = () => {
   const fgRef = useRef<ForceGraphMethods|undefined>(undefined);
   const { username } = useContext(UserContext);
-  const { data: apiData, loading, error } = useApi(username ? `/user/network/${username}` : null);
+  const { data: apiData, loading, error } = useApi(username ? `/analytic/network/${username}` : null);
 
   const graphData = useMemo(() => {
     if (!apiData || !apiData.name) return null;

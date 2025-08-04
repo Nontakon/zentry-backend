@@ -9,7 +9,7 @@ import { PageTitle } from '../components/ui/PageTitle';
 
 export const InfluentialFriendsPage = () => {
     const { username } = useContext(UserContext);
-    const { data, loading, error } = useApi(username ? `/user/profile/${username}/influential-friends` : null);
+    const { data, loading, error } = useApi(username ? `/profile/${username}/influential-friends` : null);
 
     return (
         <div>

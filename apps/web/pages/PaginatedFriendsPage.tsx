@@ -15,7 +15,7 @@ export const PaginatedFriendsPage = () => {
     
     const apiPath = useMemo(() => {
         if (!username) return null;
-        return `/user/profile/${username}/friends?page=${page}&limit=${limit}`;
+        return `/profile/${username}/friends?page=${page}&limit=${limit}`;
     }, [username, page, limit]);
     
     const { data, loading, error } = useApi(apiPath);

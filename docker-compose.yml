@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: neo4j:latest
+    container_name: bacefook-db
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/s3cr3tP@ssw0rd
+    volumes:
+      - neo4j-data:/data
+    networks:
+      - bacefook-net
+
+networks:
+  bacefook-net:
+    driver: bridge
+
+volumes:
+  neo4j-data:
