@@ -39,8 +39,8 @@ The entire project is managed with **Turborepo** and can be easily run together 
 
 1.  **Clone a Repository (if applicable):**
     ```bash
-    git clone <your-repo-url>
-    cd your-turborepo-project
+    git clone git@github.com:Nontakon/zentry-backend.git
+    cd zentry-backend
     ```
 
 2.  **Start the Database:**
