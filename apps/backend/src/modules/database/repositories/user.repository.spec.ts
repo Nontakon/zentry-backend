@@ -93,7 +93,7 @@ describe('UserRepository (Integration)', () => {
           registerUser: [],
           referralRelationShip: [],
           addFriendRelationShip: [],
-          unFriendRelationShip: [{ user1_name: 'Bob', user2_name: 'Charlie', created_at: getPastDate(1) }],
+          unFriendRelationShip: [{ user1_name: 'Bob', user2_name: 'Charlie' }],
         };
         await repository.bulkUpsertUserAndRelationShips(unfriendData);
         
@@ -369,27 +369,27 @@ describe('UserRepository (Integration)', () => {
     });
 
     it('findUsersWithMultipleReferrers: should find users referred by more than one person', async () => {
-        // Setup: 1->3, 2->3 (User3 is referred by 2 people)
-        //        1->4 (User4 is referred by 1 person)
-        const payload: CreateUserAndRelationShip = {
-            registerUser: [],
-            addFriendRelationShip: [],
-            referralRelationShip: [
-                { referredBy: 'EdgeUser1', user: 'EdgeUser3', created_at: getPastDate(1) },
-                { referredBy: 'EdgeUser2', user: 'EdgeUser3', created_at: getPastDate(1) },
-                { referredBy: 'EdgeUser1', user: 'EdgeUser4', created_at: getPastDate(1) },
-            ],
-            unFriendRelationShip: [],
-        };
-        await repository.bulkUpsertUserAndRelationShips(payload);
-  
-        const result = await repository.findUsersWithMultipleReferrers();
-  
-        expect(result.length).toBe(1); // Only one user should be in the list
-        expect(result[0].name).toBe('EdgeUser3');
-        expect(result[0].count).toBe(2);
-      });
+      // Setup: 1->3, 2->3 (User3 is referred by 2 people)
+      //        1->4 (User4 is referred by 1 person)
+      const payload: CreateUserAndRelationShip = {
+          registerUser: [],
+          addFriendRelationShip: [],
+          referralRelationShip: [
+              { referredBy: 'EdgeUser1', user: 'EdgeUser3', created_at: getPastDate(1) },
+              { referredBy: 'EdgeUser2', user: 'EdgeUser3', created_at: getPastDate(1) },
+              { referredBy: 'EdgeUser1', user: 'EdgeUser4', created_at: getPastDate(1) },
+          ],
+          unFriendRelationShip: [],
+      };
+      await repository.bulkUpsertUserAndRelationShips(payload);
+
+      const result = await repository.findUsersWithMultipleReferrers();
+
+      expect(result.length).toBe(1); // Only one user should be in the list
+      expect(result[0].name).toBe('EdgeUser3');
+      expect(result[0].count).toBe(2);
     });
+  });
 
   describe('Load Tests', () => {
     it('should handle 100,000 records for bulkUpsertUserAndRelationShips in under 10 seconds', async () => {

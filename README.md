@@ -73,8 +73,9 @@ The entire project is managed with **Turborepo** and can be easily run together 
     -   **Backend API** will be available at: `http://localhost:4000`
     -   **Neo4j Browser** (for viewing database data) will be available at: `http://localhost:7474`
 
-6. **Run Test:**
-    Run `turbo run test --filter=backend` from the project root. Turborepo will start run test backend
+6. **Run Integration Test:**
+    Run `turbo run test --filter=backend` from the project root. Turborepo will start run test backend. These tests connect to the actual database configured in your environment.
+    **Warning:** Running these tests will **permanently delete all data** in the database and repopulate it with test data. Please ensure you are not running this command against a production database.
     ```bash
     turbo run test --filter=backend
     ```
@@ -101,8 +102,12 @@ The backend provides an API for fetching various analytics data, with the follow
 -   **`POST /admin/stream-data`**: Manually triggers the event data streaming process.
 -   **`DELETE /admin/all-data`**: Deletes all data from the database.
 -   **`GET /admin/circular-referrals`**: Finds circular referrals example : A referral by B and B refferral by A.
--   **`DELETE /admin/users`**: Deletes users based on a list of names sent in the Body.
 -   **`GET /admin/multi-referrers`**: Finds who have multi referrers.
+-   **`POST /admin/users`**: Create user based on payload sent in the Body.
+-   **`DELETE /admin/users`**: Deletes users based on a list of names sent in the Body.
+-   **`POST /admin/users/relationship/referral`**: Create referral relationship of user based on payload sent in the Body.
+-   **`POST /admin/users/relationship/friend`**: Create friend relationship of user based on payload sent in the Body.
+-   **`DELETE /admin/users/relationship/friend`**: Delete friend relationship of user based on payload sent in the Body.
 
 ### Health Check
 -   **`GET /health`**: Checks the server's status.

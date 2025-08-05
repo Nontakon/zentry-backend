@@ -76,7 +76,6 @@ export class StreamDataService {
           const unfriendRelationShip: UnfriendRelationShip = {
             user1_name : e.user1_name,
             user2_name : e.user2_name,
-            created_at: this.timeHelper.toISODate(e.created_at).toISOString(),
           }
           createUserAndRelationShip.unFriendRelationShip.push(unfriendRelationShip)
           break;

@@ -129,11 +129,11 @@ export const NetworkGraphPage = () => {
                 const midX = start.x + (end.x - start.x) / 2;
                 const midY = start.y + (end.y - start.y) / 2;
 
-                const padding = 3;
-                ctx.font = `${4 / globalScale}px Sans-Serif`;
+                const padding = 4;
+                ctx.font = `${8 / globalScale}px Sans-Serif`;
                 const textWidth = ctx.measureText(label).width;
                 const boxWidth = textWidth + 2 * padding;
-                const boxHeight = 6 / globalScale;
+                const boxHeight = 8 / globalScale;
 
                 ctx.fillStyle = 'rgba(55, 65, 81, 1)';
                 ctx.fillRect(midX - boxWidth / 2, midY - boxHeight / 2, boxWidth, boxHeight);

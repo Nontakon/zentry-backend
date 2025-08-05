@@ -18,7 +18,6 @@ export interface RegisterUser {
   export interface UnfriendRelationShip {
     user1_name: string;
     user2_name: string;
-    created_at: string;
   }
 
 

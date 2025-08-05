@@ -80,7 +80,7 @@ export class UserRepository implements OnModuleInit {
       } finally {
           await session.close();
       }
-  }
+    }
 
     async findUserNetWork(username: string): Promise<UserNetwork | null> {
         const session = this.driver.session();
@@ -309,7 +309,7 @@ export class UserRepository implements OnModuleInit {
         const query = `
             MATCH (:User)-[:REFERRED]->(referred:User)
             WITH referred, count(*) AS referrerCount
-            WHERE referrerCount > 1
+            WHERE referrerCount > 1 
             RETURN referred.name AS name, referrerCount
             ORDER BY referrerCount DESC
         `;
