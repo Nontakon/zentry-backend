@@ -56,12 +56,13 @@ The entire project is managed with **Turborepo** and can be easily run together 
     ```
 
 4.  **Create Environment Variables File for the Backend:**
-    Create a `.env` file at `apps/api/.env` and add the following values. Note that `NEO4J_URI` now points to `localhost`.
+    Create a `.env` file at `apps/backend/.env` and add the following values. Note that `NEO4J_URI` now points to `localhost`.
     ```env
     # Neo4j Connection
     NEO4J_URI=neo4j://localhost:7687
     NEO4J_USERNAME=neo4j
     NEO4J_PASSWORD=s3cr3tP@ssw0rd
+    STREAM_USER_COUNT=30
     ```
 
 5.  **Run the Development Servers:**
