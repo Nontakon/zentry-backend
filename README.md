@@ -1,4 +1,4 @@
-# zentry-backend
+# zentry-challenge-backend
 # Bacefook Analytics Platform
 
 ## 📝 Overview
